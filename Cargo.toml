@@ -1,0 +1,18 @@
+[package]
+name = "chan_2_chat"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+aws_lambda_events = "0.4.0"
+http = "0.2.4"
+lambda_runtime = "0.3.0"
+regex = "1.11.1"
+reqwest = {version = "0.12.20", default-features = false, features = ["rustls-tls"] }
+tokio = "1.6.1"
+
+[profile.dev.package."*"]
+opt-level = 3
+
+[profile.release]
+lto = "thin"
